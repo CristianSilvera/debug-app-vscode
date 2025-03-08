@@ -1,0 +1,20 @@
+{
+  "name": "debug-app-vscode",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:CristianSilvera/debug-app-vscode.git",
+  "author": "Cristian Silvera <cristiansilveraa@gmail.com>",
+  "license": "MIT",
+
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "sucrase": "^3.35.0"
+  }
+}
