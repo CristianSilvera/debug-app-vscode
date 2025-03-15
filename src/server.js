@@ -7,8 +7,6 @@ app.get('/', (req, res) => {
 
     const users = getUsers();
     
-    console.log('The execution reached this point!')
-    console.log(users);
 
     return res.json({users})
 });

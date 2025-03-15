@@ -83,5 +83,79 @@ Para acceder a la lista de users:
 http://localhost:3333/
 
 ```
+## Run and debug run
+
+1 - Debo ir a "crear a launch.json fire"
+2 - Me crea un archivo launch.json con una configuración por defecto
+
+```
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+    
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\src\\server.js"
+        }
+    ]
+}
+
+```
+
+3 - Realizar configuración del nodemon.json
+
+```
+{
+    "execMap": {
+        "js": "node --inspect -r sucrase/register"
+    }
+}
+```
+-r indica que será el primer script a ser ejecutado, antes de node lea la app. 
+
+Nuevamente ejecutar 'yarn dev' 
+
+```
+Debugger listening on ws://127.0.0.1:9229/9a08abd6-67ec-4d8f-a4de-e1b6469c73ff
+For help, see: https://nodejs.org/en/docs/inspector
+Debugger attached.
+
+```
+Cambios a realizar en launch.json:
+
+```
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+    
+        {
+            "type": "node",
+            "request": "attach",
+            "protocol": "inspector",
+            "restart": true,
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        }
+    ]
+}
+```
+Colocar un breackpoint en server.js para analizar el codigo:
 
 
+
+Docs:
+
+https://www.npmjs.com/package/sucrase
